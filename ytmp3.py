@@ -45,4 +45,8 @@ if __name__ == "__main__":
     import os
 
     os.makedirs('musics', exist_ok=True)
-    os.system('move *.mp3 musics')
+
+    if os.name == 'nt':
+        os.system('move *.mp3 musics')
+    else:
+        os.system('mv *.mp3 musics')
