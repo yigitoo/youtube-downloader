@@ -29,6 +29,8 @@ def reset_url_text_file() -> None:
         f.write("")
 
 if __name__ == "__main__":
+    import os
+
     reset_url_text_file()
     print('Youtube MP3 Downloader\n')
     print('If you want to stop download list')
@@ -40,12 +42,11 @@ if __name__ == "__main__":
 
         save_url_to_file(url)
 
+    os.system('yt-dlp --rm-cache')
     download_mp3()
 
-    import os
 
     os.makedirs('musics', exist_ok=True)
-
     if os.name == 'nt':
         os.system('move *.mp3 musics')
     else:
